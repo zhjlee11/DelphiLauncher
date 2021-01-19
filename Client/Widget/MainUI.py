@@ -50,16 +50,9 @@ class MainUI(QWidget):
         install_input_layout = QGridLayout()
 
         install_input_layout.addWidget(QLabel("공유 서버 주소 : "), 0, 0)
-        install_input_layout.addWidget(QLabel("공유 서버 포트 : "), 1, 0)
 
         self.serverIP_Input = QLineEdit()
         install_input_layout.addWidget(self.serverIP_Input, 0, 1)
-
-        self.serverPORT_Input = QLineEdit()
-        self.onlyInt = QIntValidator()
-        self.serverPORT_Input.setValidator(self.onlyInt)
-        install_input_layout.addWidget(self.serverPORT_Input, 1, 1)
-
 
         self.install_button = QPushButton("설치")
         self.install_button.clicked.connect(self.install_file)
@@ -95,19 +88,16 @@ class MainUI(QWidget):
 
     def install_file(self):
         ip = self.serverIP_Input.text()
-        port = self.serverPORT_Input.text()
 
         if not self.isInstalling:
             if ip==None or ip=="":
                 QMessageBox.warning(self, '경고', '공유 서버 주소를 입력해주세요.', QMessageBox.Yes, QMessageBox.Yes)
-            elif port==None or port=="":
-                QMessageBox.warning(self, '경고', '공유 서버 포트를 입력해주세요.', QMessageBox.Yes, QMessageBox.Yes)
             else :
                 self.isInstalling = True
-                result = Install.install(ip, int(port), ui=self)
+                result = Install.install(ip, ui=self)
                 self.isInstalling = False
                 if result == None:
-                    QMessageBox.information(self, '경고', '서버 주소 및 포트가 잘못되었습니다.', QMessageBox.Yes, QMessageBox.Yes)
+                    QMessageBox.information(self, '경고', '서버 주소가 잘못되었습니다.', QMessageBox.Yes, QMessageBox.Yes)
                 else:
                     QMessageBox.information(self, '정보', result['package_name']+'이/가 성공적으로 설치되었습니다.', QMessageBox.Yes, QMessageBox.Yes)
         else :
