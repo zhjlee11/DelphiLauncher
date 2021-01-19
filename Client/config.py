@@ -1,0 +1,1 @@
+PROFILE_PATH = 'launcher_profile.json'
