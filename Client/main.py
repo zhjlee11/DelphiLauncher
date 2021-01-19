@@ -13,15 +13,16 @@ class LauncherConrtoller:
     def __init__(self):
         self.login_data = None
         self.launch_profile = None
+        self.theme = "dark_cyan.xml"
 
     def show_login(self):
         self.login = LoginUI.LoginUI(parent=self)
-        apply_stylesheet(self.login, theme='dark_lightgreen.xml')
+        apply_stylesheet(self.login, theme=self.theme)
         self.login.show()
 
     def show_main(self):
         self.window = MainUI.MainUI(parent=self)
-        apply_stylesheet(self.window, theme='dark_lightgreen.xml')
+        apply_stylesheet(self.window, theme=self.theme)
         self.login.close()
         self.window.show()
 

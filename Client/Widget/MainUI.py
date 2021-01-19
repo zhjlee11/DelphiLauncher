@@ -80,7 +80,7 @@ class MainUI(QWidget):
             itemN = QListWidgetItem(self.listwidget)
 
             itemwidget = LauncherListViewItem(dict, parent=self)
-            apply_stylesheet(itemwidget, theme='dark_lightgreen.xml')
+            apply_stylesheet(itemwidget, theme=self.parent.theme)
             itemwidget.setContentsMargins(0, 0, 0, 0)
             itemN.setSizeHint(itemwidget.sizeHint())
 
@@ -109,7 +109,7 @@ class MainUI(QWidget):
                 if result == None:
                     QMessageBox.information(self, '경고', '서버 주소 및 포트가 잘못되었습니다.', QMessageBox.Yes, QMessageBox.Yes)
                 else:
-                    QMessageBox.information(self, '정보', result['package_name']+'성공적으로 설치되었습니다.', QMessageBox.Yes, QMessageBox.Yes)
+                    QMessageBox.information(self, '정보', result['package_name']+'이/가 성공적으로 설치되었습니다.', QMessageBox.Yes, QMessageBox.Yes)
         else :
             QMessageBox.information(self, '경고', '이미 다운받고 있는 패키지가 존재합니다.', QMessageBox.Yes, QMessageBox.Yes)
         self.Update()
@@ -120,7 +120,7 @@ class MainUI(QWidget):
             itemN = QListWidgetItem(self.listwidget)
 
             itemwidget = LauncherListViewItem(dict, parent=self)
-            apply_stylesheet(itemwidget, theme='dark_lightgreen.xml')
+            apply_stylesheet(itemwidget, theme=self.parent.theme)
             itemwidget.setContentsMargins(0, 0, 0, 0)
             itemN.setSizeHint(itemwidget.sizeHint())
 

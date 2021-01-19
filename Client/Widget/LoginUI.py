@@ -97,13 +97,17 @@ class LoginUI(QWidget):
         loginGrid.addWidget(self.login_inputID, 0, 1)
         loginGrid.addWidget(self.login_inputPW, 1, 1)
 
+        copyright_text = QLabel('Copyright 2021. Laplace. All rights reserved.')
+        copyright_text.setStyleSheet("color: white;"
+                       "background-color: rgba( 0, 0, 0, 0 );")
+
         vbox = QVBoxLayout()
         vbox.addStretch(1)
         vbox.addWidget(logolabel)
         vbox.addWidget(commentlabel)
         vbox.addLayout(loginGrid)
         vbox.addWidget(self.login_button)
-        vbox.addWidget(QLabel('Copyright 2021. Laplace. All rights reserved.'))
+        vbox.addWidget(copyright_text)
         vbox.addStretch(1)
 
         maingroup.setLayout(vbox)
