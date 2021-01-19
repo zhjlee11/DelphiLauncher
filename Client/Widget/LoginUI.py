@@ -65,7 +65,7 @@ class LoginUI(QWidget):
         logopixmap.scaledToWidth(400)
         logolabel.setPixmap(logopixmap)
 
-        commentlabel = QLabel("마인크래프트 런처의 새로운 패러다임\n델포이에 오신 것을 환영합니다.")
+        commentlabel = QLabel("마인크래프트 런처의 새로운 패러다임,\n델포이에 오신 것을 환영합니다.")
         commentlabel.setAlignment(Qt.AlignCenter)
         commentlabel.setStyleSheet("color: white;"
                                 "background-color: rgba( 0, 0, 0, 0 );")
@@ -103,6 +103,7 @@ class LoginUI(QWidget):
         vbox.addWidget(commentlabel)
         vbox.addLayout(loginGrid)
         vbox.addWidget(self.login_button)
+        vbox.addWidget(QLabel('Copyright 2021. Laplace. All rights reserved.'))
         vbox.addStretch(1)
 
         maingroup.setLayout(vbox)
