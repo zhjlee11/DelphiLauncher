@@ -63,7 +63,8 @@ class LauncherListViewItem(QWidget):
                 else:
                     rename_launcher_profile(self.launcher_profile['id'], newname)
             else:
-                QMessageBox.information(self, '경고', '예상하지 못한 오류가 발생하였습니다.', QMessageBox.Yes, QMessageBox.Yes)
+                #QMessageBox.information(self, '경고', '예상하지 못한 오류가 발생하였습니다.', QMessageBox.Yes, QMessageBox.Yes)
+                pass
             self.parent.Update()
         else :
             QMessageBox.information(self, '경고', '다운받고 있는 패키지가 존재합니다.\n다운이 끝난 후에 수정이 가능합니다.', QMessageBox.Yes, QMessageBox.Yes)

@@ -5,7 +5,6 @@ from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QLabel, QLineEdit, QTextEdit, QGroupBox, QFileDialog, \
     QPushButton, QDialog, QMessageBox, QVBoxLayout, QHBoxLayout, QListWidget, QListWidgetItem, QLayout, QProgressBar
 from PyQt5.QtGui import QIcon, QColor, QPen, QPixmap, QIntValidator
-from qt_material import apply_stylesheet
 
 from Install import Install
 from Widget.LauncherListViewItem import LauncherListViewItem
@@ -73,7 +72,7 @@ class MainUI(QWidget):
             itemN = QListWidgetItem(self.listwidget)
 
             itemwidget = LauncherListViewItem(dict, parent=self)
-            apply_stylesheet(itemwidget, theme=self.parent.theme)
+            itemwidget.setStyleSheet(self.parent.getStyleSheet())
             itemwidget.setContentsMargins(0, 0, 0, 0)
             itemN.setSizeHint(itemwidget.sizeHint())
 
@@ -110,7 +109,7 @@ class MainUI(QWidget):
             itemN = QListWidgetItem(self.listwidget)
 
             itemwidget = LauncherListViewItem(dict, parent=self)
-            apply_stylesheet(itemwidget, theme=self.parent.theme)
+            itemwidget.setStyleSheet(self.parent.getStyleSheet())
             itemwidget.setContentsMargins(0, 0, 0, 0)
             itemN.setSizeHint(itemwidget.sizeHint())
 
